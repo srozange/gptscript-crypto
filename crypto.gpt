@@ -1,0 +1,14 @@
+tools: sys.exec?
+
+Lance un conteneur docker avec une base postgres nommés crypto-postgres s'il n'existe pas déjà et expose le port 5432.
+
+Note : Pour les opérations avec la base de données, utilise l'utilitaire psql qui est installé dans le conteneur docker.
+
+Crée l'instance de base de données cryptos si elle n'existe pas.
+
+Crée la table cryptos si elle n'existe pas sinon vide la.
+
+Récupère via curl le contenu du site https://courscryptomonnaies.com/ et insère dans la table toutes les crypto monnaies à partir des colonnes html suivantes :
+- "Crypto-monnaie", en supprimant l'indice et les info entre parenthèse (exemple : "36. EOS (EOS)" => "EOS")
+- "Cours"
+- "Variation (24h)"
